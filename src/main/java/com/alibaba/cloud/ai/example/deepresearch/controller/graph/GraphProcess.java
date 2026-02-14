@@ -58,6 +58,9 @@ import java.util.concurrent.Future;
 
 public class GraphProcess {
 
+	/**
+	 * 跟踪每个会话的图示例计数，用于生成唯一的图ID
+	 */
 	private final ConcurrentHashMap<String, Integer> sessionCountMap = new ConcurrentHashMap<>();
 
 	private final ConcurrentHashMap<GraphId, Future<?>> graphTaskFutureMap = new ConcurrentHashMap<>();
