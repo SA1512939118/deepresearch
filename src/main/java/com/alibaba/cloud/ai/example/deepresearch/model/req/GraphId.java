@@ -23,6 +23,15 @@ import java.io.Serializable;
 /**
  * @author vlsmb
  * @since 2025/8/6
+ *
+ * record：
+ * 这是 Java 16 引入的记录类型，用于定义不可变的数据载体（类似简化的不可变类）。
+ * 编译器会自动生成：
+ * 私有最终字段：sessionId、threadId
+ * 构造器：GraphId(String sessionId, String threadId)
+ * 访问器方法：sessionId()、threadId()
+ * equals()、hashCode()、toString()
+ * 对象是不可变的，字段设值后不能再修改。
  */
 public record GraphId(@JsonProperty("session_id") String sessionId,
 		@JsonProperty("thread_id") String threadId) implements Serializable {
