@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class ShortUserRoleExtractInMemory implements ShortTermMemoryRepository {
 
 	/**
-	 * 存储用户查询记忆
+	 * 存储用户查询记忆，sessionId->List<UserMessage>
 	 */
 	Map<String, List<UserMessage>> userQueryMemory = new ConcurrentHashMap<>();
 
@@ -62,8 +62,10 @@ public class ShortUserRoleExtractInMemory implements ShortTermMemoryRepository {
 			return List.of();
 		}
 		List<UserMessage> sortedMessages = new ArrayList<>(messages);
+		//按消息创建时间降序排列，也就是最新的消息排在前面
 		sortedMessages.sort(Comparator.comparing(this::resolveCreateTime).reversed());
 		if (limit > 0) {
+			// 取降序排列后的前limit条，也就是最新的limit条
 			return sortedMessages.stream().limit(limit).map(UserMessage::getText).collect(Collectors.toList());
 		}
 		return sortedMessages.stream().map(UserMessage::getText).collect(Collectors.toList());
@@ -122,6 +124,7 @@ public class ShortUserRoleExtractInMemory implements ShortTermMemoryRepository {
 		shortTermMemory.remove(buildKey(userId, conversationId));
 	}
 
+	// 提取消息创建时间
 	private LocalDateTime resolveCreateTime(UserMessage message) {
 		Map<String, Object> metadata = message.getMetadata();
 		Object value = metadata.get("create_time");
