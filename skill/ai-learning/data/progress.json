@@ -1,0 +1,687 @@
+{
+  "current_stage": "2",
+  "current_point": "2.1",
+  "stages": {
+    "1": {
+      "name": "Prompt Engineering",
+      "duration": "2周",
+      "description": "学习Prompt设计核心技能，包括CoT、ReAct等高级技术",
+      "points": {
+        "1.1": {
+          "name": "Prompt设计原则",
+          "description": "学习Prompt设计的基本原则，包括清晰性、具体性、结构化等",
+          "resources": [
+            "OpenAI Prompt Engineering Guide: https://platform.openai.com/docs/guides/prompt-engineering",
+            "Learn Prompting: https://learnprompting.org/"
+          ],
+          "practice": "在OpenAI Playground中实验不同Prompt策略，对比效果",
+          "status": "completed",
+          "completed_date": "2026-04-02",
+          "key_concepts": ["清晰性", "具体性", "结构化", "角色设定"]
+        },
+        "1.2": {
+          "name": "Few-shot Learning",
+          "description": "理解Few-shot Learning的原理和应用场景",
+          "resources": [
+            "Language Models are Few-Shot Learners论文: https://arxiv.org/abs/2005.14165"
+          ],
+          "practice": "设计3-5个Few-shot示例，测试在不同任务上的效果",
+          "status": "completed",
+          "completed_date": "2026-04-02",
+          "key_concepts": ["In-context Learning", "示例选择", "示例数量"]
+        },
+        "1.3": {
+          "name": "Chain-of-Thought (CoT)",
+          "description": "学习Chain-of-Thought推理技术，让模型展示推理过程",
+          "resources": [
+            "CoT论文: https://arxiv.org/abs/2201.11903",
+            "Prompting Guide CoT: https://www.promptingguide.ai/techniques/cot"
+          ],
+          "practice": "对比Zero-shot、Few-shot、CoT在数学问题上的表现差异",
+          "status": "completed",
+          "completed_date": "2026-04-02",
+          "key_concepts": ["推理链", "Let's think step by step", "Zero-shot CoT"]
+        },
+        "1.4": {
+          "name": "ReAct框架",
+          "description": "学习ReAct框架，结合推理和行动",
+          "resources": [
+            "ReAct论文: https://arxiv.org/abs/2210.01614",
+            "Prompting Guide ReAct: https://www.promptingguide.ai/techniques/react"
+          ],
+          "practice": "手写一个简单的ReAct Agent，不使用框架",
+          "status": "completed",
+          "completed_date": "2026-04-07",
+          "key_concepts": ["Reasoning", "Acting", "Observation循环"]
+        },
+        "1.5": {
+          "name": "Function Calling / Structured Output",
+          "description": "学习Function Calling机制和结构化输出",
+          "resources": [
+            "OpenAI Function Calling文档: https://platform.openai.com/docs/guides/function-calling"
+          ],
+          "practice": "定义3个工具函数，让模型根据用户问题选择合适的工具",
+          "status": "completed",
+          "completed_date": "2026-04-05",
+          "key_concepts": ["工具定义", "参数schema", "JSON Mode"]
+        },
+        "1.6": {
+          "name": "【实践项目】手写ReAct Agent",
+          "description": "不使用框架，手写一个ReAct Agent",
+          "requirements": [
+            "实现 Thought → Action → Observation 循环",
+            "定义3个工具：搜索、计算器、查询天气",
+            "支持多轮对话",
+            "处理错误和重试"
+          ],
+          "status": "completed",
+          "completed_date": "2026-04-07",
+          "type": "project"
+        }
+      }
+    },
+    "2": {
+      "name": "RAG实战",
+      "duration": "1个月",
+      "description": "学习向量检索和RAG架构，掌握高级优化技术",
+      "points": {
+        "2.1": {
+          "name": "向量数据库原理",
+          "description": "理解向量数据库的基本原理和应用场景",
+          "resources": [
+            "Pinecone Vector Database 101: https://www.pinecone.io/learn/vector-database/",
+            "向量相似度计算: https://www.pinecone.io/learn/vector-similarity/"
+          ],
+          "practice": "使用ChromaDB存储和检索向量，对比不同相似度计算方法",
+          "status": "pending",
+          "key_concepts": ["向量嵌入", "相似度计算", "ANN算法", "HNSW/IVF"]
+        },
+        "2.2": {
+          "name": "Embedding模型",
+          "description": "了解主流Embedding模型及其选择",
+          "resources": [
+            "MTEB排行榜: https://huggingface.co/spaces/mteb/leaderboard",
+            "BGE模型文档"
+          ],
+          "practice": "对比BGE、M3E、OpenAI Embedding的效果差异",
+          "status": "pending",
+          "key_concepts": ["MTEB基准", "多语言支持", "领域适配"]
+        },
+        "2.3": {
+          "name": "Naive RAG实现",
+          "description": "实现基础的RAG问答系统",
+          "resources": [
+            "LangChain RAG教程: https://python.langchain.com/docs/tutorials/rag/"
+          ],
+          "practice": "使用LangChain搭建一个简单的文档问答系统",
+          "status": "pending",
+          "key_concepts": ["检索-生成流程", "上下文窗口", "引用来源"]
+        },
+        "2.4": {
+          "name": "Chunking策略",
+          "description": "学习不同的文档分块策略",
+          "resources": [
+            "LangChain Splitter文档"
+          ],
+          "practice": "对比固定大小、语义分割、递归分割的效果",
+          "status": "pending",
+          "key_concepts": ["固定大小分块", "语义分块", "递归分块", "重叠窗口"]
+        },
+        "2.5": {
+          "name": "Hybrid Search",
+          "description": "结合关键词检索和向量检索",
+          "resources": [
+            "Hybrid Search教程: https://www.pinecone.io/learn/hybrid-search/"
+          ],
+          "practice": "实现BM25 + 向量的混合检索，调优权重",
+          "status": "pending",
+          "key_concepts": ["BM25", "向量检索", "RRF融合", "权重调优"]
+        },
+        "2.6": {
+          "name": "Re-ranking优化",
+          "description": "使用Re-ranking提升检索质量",
+          "resources": [
+            "Cohere Rerank介绍",
+            "BGE-Reranker使用"
+          ],
+          "practice": "对比有无Re-ranking的检索效果差异",
+          "status": "pending",
+          "key_concepts": ["Cross-Encoder", "BGE-Reranker", "Cohere Rerank"]
+        },
+        "2.7": {
+          "name": "Query改写",
+          "description": "优化用户查询以提升检索效果",
+          "resources": [
+            "HyDE论文: https://arxiv.org/abs/2212.10496",
+            "Query Expansion技术"
+          ],
+          "practice": "实现Query改写和HyDE，对比效果",
+          "status": "pending",
+          "key_concepts": ["Query Expansion", "HyDE", "多查询"]
+        },
+        "2.8": {
+          "name": "【实践项目】智能文档问答系统",
+          "description": "构建完整的文档问答系统",
+          "requirements": [
+            "支持PDF/Word/TXT上传",
+            "多种Chunking策略可配置",
+            "Hybrid Search实现",
+            "Re-ranking优化",
+            "返回答案+来源引用",
+            "Web界面"
+          ],
+          "tech_stack": ["LangChain", "ChromaDB/Milvus", "BGE-Embedding", "FastAPI", "Streamlit"],
+          "status": "pending",
+          "type": "project"
+        }
+      }
+    },
+    "3": {
+      "name": "Agent开发",
+      "duration": "1.5个月",
+      "description": "学习Agent理论和框架，掌握LangGraph等主流工具",
+      "points": {
+        "3.1": {
+          "name": "Agent理论基础",
+          "description": "理解Agent的定义、架构和核心组件",
+          "resources": [
+            "OpenAI Agents Guide: https://platform.openai.com/docs/assistants",
+            "Lilian Weng: LLM Powered Autonomous Agents"
+          ],
+          "practice": "绘制Agent架构图，理解各组件交互",
+          "status": "pending",
+          "key_concepts": ["感知", "规划", "行动", "记忆"]
+        },
+        "3.2": {
+          "name": "Tool Use原理",
+          "description": "深入理解工具调用机制",
+          "resources": [
+            "Toolformer论文: https://arxiv.org/abs/2302.06079"
+          ],
+          "practice": "手动解析Function Calling的API响应",
+          "status": "pending",
+          "key_concepts": ["工具定义", "参数解析", "执行反馈"]
+        },
+        "3.3": {
+          "name": "规划策略",
+          "description": "学习Agent的任务规划和分解策略",
+          "resources": [
+            "Tree of Thoughts论文",
+            "Plan-and-Solve论文"
+          ],
+          "practice": "实现简单的任务分解器",
+          "status": "pending",
+          "key_concepts": ["任务分解", "ToT", "GoT", "反思"]
+        },
+        "3.4": {
+          "name": "记忆机制",
+          "description": "理解Agent的记忆管理",
+          "resources": [
+            "MemGPT论文",
+            "LangChain Memory文档"
+          ],
+          "practice": "实现短期记忆和长期记忆",
+          "status": "pending",
+          "key_concepts": ["短期记忆", "长期记忆", "工作记忆", "记忆压缩"]
+        },
+        "3.5": {
+          "name": "LangChain Agent",
+          "description": "使用LangChain构建Agent",
+          "resources": [
+            "LangChain Agent教程: https://python.langchain.com/docs/modules/agents/"
+          ],
+          "practice": "使用AgentExecutor构建简单Agent",
+          "status": "pending",
+          "key_concepts": ["AgentExecutor", "Tool定义", "Agent类型"]
+        },
+        "3.6": {
+          "name": "LangGraph基础",
+          "description": "学习LangGraph状态机概念",
+          "resources": [
+            "LangGraph官方教程: https://langchain-ai.github.io/langgraph/tutorials/"
+          ],
+          "practice": "用LangGraph实现一个简单的对话流程",
+          "status": "pending",
+          "key_concepts": ["StateGraph", "Node", "Edge", "State"]
+        },
+        "3.7": {
+          "name": "LangGraph进阶",
+          "description": "掌握LangGraph高级特性",
+          "resources": [
+            "LangGraph示例库"
+          ],
+          "practice": "实现条件路由和人机协作",
+          "status": "pending",
+          "key_concepts": ["条件边", "持久化", "Human-in-the-loop"]
+        },
+        "3.8": {
+          "name": "多Agent系统",
+          "description": "学习多Agent协作模式",
+          "resources": [
+            "AutoGen官方文档: https://microsoft.github.io/autogen/",
+            "CrewAI文档: https://docs.crewai.com/"
+          ],
+          "practice": "使用LangGraph或CrewAI实现多Agent协作",
+          "status": "pending",
+          "key_concepts": ["Agent通信", "任务分配", "Hierarchical/Sequential"]
+        },
+        "3.9": {
+          "name": "【实践项目】智能助手Agent",
+          "description": "构建多功能智能助手",
+          "requirements": [
+            "LangGraph状态机设计",
+            "集成4+工具：搜索、天气、代码执行、数据库查询",
+            "意图识别与路由",
+            "多轮对话记忆",
+            "错误恢复与重试",
+            "流式输出"
+          ],
+          "tech_stack": ["LangGraph", "FastAPI", "PostgreSQL", "Redis"],
+          "status": "pending",
+          "type": "project"
+        },
+        "3.10": {
+          "name": "【实践项目】多Agent协作系统",
+          "description": "实现多Agent协作的报告生成系统",
+          "requirements": [
+            "定义3个角色：研究员、分析师、编辑",
+            "Agent间通信与协作",
+            "自动化研究报告生成",
+            "质量审核流程"
+          ],
+          "tech_stack": ["LangGraph", "CrewAI"],
+          "status": "pending",
+          "type": "project"
+        },
+        "3.11": {
+          "name": "MCP协议原理",
+          "description": "理解Model Context Protocol的设计思想和核心概念",
+          "resources": [
+            "MCP官方文档: https://modelcontextprotocol.io/",
+            "MCP规范: https://spec.modelcontextprotocol.io/"
+          ],
+          "practice": "阅读MCP规范，理解工具、资源、提示词的概念",
+          "status": "pending",
+          "key_concepts": ["协议设计", "工具定义", "资源暴露", "传输层"]
+        },
+        "3.12": {
+          "name": "【实践项目】企业级MCP Server",
+          "description": "开发一个文档智能处理MCP Server，提供多工具协作能力",
+          "requirements": [
+            "工具1: document_parse - 支持PDF/Word/Excel解析，提取文本和表格",
+            "工具2: document_chunk - 智能分块，支持多种策略（固定/语义/递归）",
+            "工具3: document_search - 基于向量的语义搜索",
+            "工具4: document_summarize - 自动生成文档摘要",
+            "资源暴露: 文档元数据（页数、字数、创建时间等）",
+            "支持流式响应处理大文件",
+            "完善的错误处理和日志",
+            "单元测试覆盖"
+          ],
+          "tech_stack": ["MCP Python SDK", "PyPDF2", "python-docx", "ChromaDB", "pytest"],
+          "status": "pending",
+          "type": "project",
+          "interview_highlights": [
+            "理解协议设计的重要性",
+            "展示工程化能力（测试、日志、错误处理）",
+            "流式处理大文件的优化思路"
+          ]
+        },
+        "3.13": {
+          "name": "【实践项目】多MCP协作Agent",
+          "description": "构建能够动态发现和编排多个MCP Server的Agent系统",
+          "requirements": [
+            "MCP Client实现：连接和发现工具",
+            "动态工具注册：自动将MCP工具转换为Agent可用格式",
+            "多Server管理：同时连接文档处理、数据库查询、代码执行三个MCP Server",
+            "跨Server工具编排：一个任务可能需要调用多个Server的工具",
+            "故障转移：单个Server不可用时的降级策略",
+            "工具链组合：将多个工具组合成复杂工作流",
+            "完整的Web界面和API"
+          ],
+          "tech_stack": ["LangGraph", "MCP Python SDK", "FastAPI", "React/Streamlit"],
+          "status": "pending",
+          "type": "project",
+          "interview_highlights": [
+            "展示系统设计能力",
+            "理解和应用新兴协议（MCP）",
+            "处理分布式系统的容错问题",
+            "工具编排的复杂逻辑"
+          ]
+        }
+      }
+    },
+    "4": {
+      "name": "模型微调",
+      "duration": "1个月",
+      "description": "学习SFT和LoRA微调技术，掌握数据构建方法",
+      "points": {
+        "4.1": {
+          "name": "SFT原理",
+          "description": "理解监督微调的原理和流程",
+          "resources": [
+            "State of GPT演讲: https://www.youtube.com/watch?v=bZQun8Y4L2A",
+            "李宏毅ChatGPT原理: https://www.bilibili.com/video/BV1HM411t7zZ"
+          ],
+          "practice": "绘制SFT流程图，理解预训练→SFT→RLHF的关系",
+          "status": "pending",
+          "key_concepts": ["有监督微调", "指令跟随", "能力对齐"]
+        },
+        "4.2": {
+          "name": "LoRA原理",
+          "description": "学习LoRA参数高效微调",
+          "resources": [
+            "LoRA论文: https://arxiv.org/abs/2106.09685",
+            "LoRA图解文章"
+          ],
+          "practice": "手动计算LoRA的参数量，理解低秩分解",
+          "status": "pending",
+          "key_concepts": ["低秩分解", "Adapter", "参数效率"]
+        },
+        "4.3": {
+          "name": "QLoRA原理",
+          "description": "学习4bit量化微调技术",
+          "resources": [
+            "QLoRA论文: https://arxiv.org/abs/2305.14314"
+          ],
+          "practice": "理解NormalFloat4和双重量化的原理",
+          "status": "pending",
+          "key_concepts": ["4bit量化", "双重量化", "Paged Optimizers"]
+        },
+        "4.4": {
+          "name": "LLaMA-Factory实践",
+          "description": "使用LLaMA-Factory进行微调",
+          "resources": [
+            "LLaMA-Factory官方文档: https://github.com/hiyouga/LLaMA-Factory"
+          ],
+          "practice": "使用Web UI完成一次微调实验",
+          "status": "pending",
+          "key_concepts": ["Web UI", "配置文件", "训练监控"]
+        },
+        "4.5": {
+          "name": "Unsloth实践",
+          "description": "使用Unsloth快速微调",
+          "resources": [
+            "Unsloth教程: https://github.com/unslothai/unsloth"
+          ],
+          "practice": "在Colab上使用Unsloth微调模型",
+          "status": "pending",
+          "key_concepts": ["快速训练", "Colab支持", "优化技巧"]
+        },
+        "4.6": {
+          "name": "数据格式与质量",
+          "description": "学习微调数据的格式和质量要求",
+          "resources": [
+            "Alpaca数据格式",
+            "ShareGPT数据格式"
+          ],
+          "practice": "将原始数据转换为Alpaca格式",
+          "status": "pending",
+          "key_concepts": ["Alpaca格式", "ShareGPT格式", "质量>数量"]
+        },
+        "4.7": {
+          "name": "数据合成方法",
+          "description": "学习使用LLM合成训练数据",
+          "resources": [
+            "Self-Instruct方法",
+            "Evol-Instruct方法"
+          ],
+          "practice": "使用GPT-4合成100条指令数据",
+          "status": "pending",
+          "key_concepts": ["Self-Instruct", "Evol-Instruct", "数据审核"]
+        },
+        "4.8": {
+          "name": "模型评估",
+          "description": "学习微调模型的评估方法",
+          "resources": [
+            "LLM-as-Judge方法"
+          ],
+          "practice": "使用GPT-4评估微调后的模型效果",
+          "status": "pending",
+          "key_concepts": ["困惑度", "LLM-as-Judge", "人工评估"]
+        },
+        "4.9": {
+          "name": "【实践项目】领域模型微调",
+          "description": "微调一个领域问答模型",
+          "requirements": [
+            "选择基座模型：Qwen2.5-7B或LLaMA3-8B",
+            "准备100-500条高质量问答数据",
+            "使用QLoRA微调",
+            "评估微调效果",
+            "模型合并与导出"
+          ],
+          "tech_stack": ["LLaMA-Factory", "PEFT", "BGE-Embedding"],
+          "hardware": "12GB+显存（RTX 3090/4090或Colab Pro）",
+          "status": "pending",
+          "type": "project"
+        }
+      }
+    },
+    "5": {
+      "name": "综合项目",
+      "duration": "2个月",
+      "description": "整合所有知识，构建企业级智能知识库助手",
+      "points": {
+        "5.1": {
+          "name": "项目架构设计",
+          "description": "设计项目整体架构和技术选型",
+          "requirements": [
+            "绘制系统架构图",
+            "确定技术栈",
+            "设计数据库模型",
+            "规划API接口"
+          ],
+          "status": "pending",
+          "type": "design"
+        },
+        "5.2": {
+          "name": "基础RAG模块",
+          "description": "实现文档上传和基础问答",
+          "requirements": [
+            "文档解析（PDF/Word/TXT）",
+            "Chunking实现",
+            "向量化和存储",
+            "基础问答接口"
+          ],
+          "status": "pending",
+          "type": "coding"
+        },
+        "5.3": {
+          "name": "Agent核心模块",
+          "description": "实现LangGraph状态机和工具集成",
+          "requirements": [
+            "LangGraph状态机",
+            "意图识别",
+            "工具路由",
+            "多工具协作"
+          ],
+          "status": "pending",
+          "type": "coding"
+        },
+        "5.4": {
+          "name": "高级RAG优化",
+          "description": "实现Hybrid Search和Re-ranking",
+          "requirements": [
+            "BM25 + 向量混合检索",
+            "Re-ranking模块",
+            "Query改写",
+            "效果对比测试"
+          ],
+          "status": "pending",
+          "type": "coding"
+        },
+        "5.5": {
+          "name": "对话管理模块",
+          "description": "实现多轮对话和历史记录",
+          "requirements": [
+            "会话管理",
+            "历史记录存储",
+            "上下文窗口管理",
+            "对话摘要"
+          ],
+          "status": "pending",
+          "type": "coding"
+        },
+        "5.6": {
+          "name": "微调模型集成",
+          "description": "将微调模型集成到系统",
+          "requirements": [
+            "vLLM/Ollama部署",
+            "模型服务封装",
+            "推理优化",
+            "效果对比"
+          ],
+          "status": "pending",
+          "type": "coding"
+        },
+        "5.7": {
+          "name": "后端API完善",
+          "description": "完善FastAPI后端服务",
+          "requirements": [
+            "RESTful API设计",
+            "认证中间件",
+            "限流控制",
+            "错误处理",
+            "API文档"
+          ],
+          "status": "pending",
+          "type": "coding"
+        },
+        "5.8": {
+          "name": "前端界面开发",
+          "description": "开发Web界面",
+          "requirements": [
+            "对话界面",
+            "文档管理",
+            "进度显示",
+            "流式输出"
+          ],
+          "status": "pending",
+          "type": "coding"
+        },
+        "5.9": {
+          "name": "测试与优化",
+          "description": "系统测试和性能优化",
+          "requirements": [
+            "单元测试",
+            "集成测试",
+            "性能测试",
+            "优化瓶颈"
+          ],
+          "status": "pending",
+          "type": "testing"
+        },
+        "5.10": {
+          "name": "部署与文档",
+          "description": "部署上线和编写文档",
+          "requirements": [
+            "Docker容器化",
+            "部署配置",
+            "README文档",
+            "API文档",
+            "演示视频"
+          ],
+          "status": "pending",
+          "type": "deployment"
+        }
+      }
+    },
+    "6": {
+      "name": "面试冲刺",
+      "duration": "2个月",
+      "description": "复习八股文，准备面试，提炼项目亮点",
+      "points": {
+        "6.1": {
+          "name": "深度学习基础复习",
+          "description": "复习激活函数、正则化、优化器等基础",
+          "resources": [
+            "李沐动手学深度学习",
+            "深度学习面试题汇总"
+          ],
+          "status": "pending",
+          "key_concepts": ["激活函数", "正则化", "优化器", "损失函数"]
+        },
+        "6.2": {
+          "name": "Transformer深入复习",
+          "description": "深入复习Transformer结构和计算",
+          "resources": [
+            "The Illustrated Transformer",
+            "Transformer面试题汇总"
+          ],
+          "status": "pending",
+          "key_concepts": ["Self-Attention", "Multi-Head", "位置编码", "LayerNorm"]
+        },
+        "6.3": {
+          "name": "LLM架构细节",
+          "description": "学习LLaMA架构和KV Cache",
+          "resources": [
+            "LLaMA论文",
+            "KV Cache详解"
+          ],
+          "status": "pending",
+          "key_concepts": ["LLaMA架构", "GPT演进", "KV Cache", "Tokenizer"]
+        },
+        "6.4": {
+          "name": "推理与部署",
+          "description": "学习推理优化和部署技术",
+          "resources": [
+            "vLLM文档",
+            "量化技术对比"
+          ],
+          "status": "pending",
+          "key_concepts": ["vLLM", "量化", "Flash Attention", "并行策略"]
+        },
+        "6.5": {
+          "name": "RAG面试题",
+          "description": "准备RAG相关面试题",
+          "resources": [
+            "RAG面试题整理",
+            "RAG优化技术汇总"
+          ],
+          "status": "pending"
+        },
+        "6.6": {
+          "name": "Agent面试题",
+          "description": "准备Agent相关面试题",
+          "resources": [
+            "Agent设计面试题",
+            "多Agent系统面试题"
+          ],
+          "status": "pending"
+        },
+        "6.7": {
+          "name": "微调面试题",
+          "description": "准备微调相关面试题",
+          "resources": [
+            "微调技术面试题",
+            "LoRA/QLoRA原理"
+          ],
+          "status": "pending"
+        },
+        "6.8": {
+          "name": "项目亮点提炼",
+          "description": "准备项目介绍和亮点",
+          "requirements": [
+            "3-5分钟项目介绍",
+            "技术选型理由",
+            "核心难点和解决方案",
+            "性能指标和优化效果"
+          ],
+          "status": "pending"
+        },
+        "6.9": {
+          "name": "模拟面试",
+          "description": "进行模拟面试练习",
+          "requirements": [
+            "准备自我介绍",
+            "模拟技术问答",
+            "项目深挖练习",
+            "行为面试准备"
+          ],
+          "status": "pending"
+        }
+      }
+    }
+  },
+  "created_at": null,
+  "last_update": null
+}
